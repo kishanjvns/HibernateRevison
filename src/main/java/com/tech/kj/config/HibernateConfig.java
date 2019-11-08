@@ -32,7 +32,8 @@ public class HibernateConfig {
 		configuration.setProperty(Environment.HBM2DDL_AUTO, "update");
 		configuration.addAnnotatedClass(Employee.class);
 		configuration.addAnnotatedClass(OfficeResource.class);
-		configuration.addAnnotatedClass(Department.class);
+		configuration.addAnnotatedClass(Department.class);		
+		configuration.setProperty(Environment.SCANNER_DISCOVERY,"class");
 		ServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 		SessionFactory sf=configuration.buildSessionFactory(serviceRegistry);
 		return sf;
